@@ -1,0 +1,202 @@
+#navigation{
+    width: 10vw;
+    font-size: 30px;
+    background: rgba(255, 0, 0, 0.59);
+    color: white;
+    text-align: right;
+    position: relative;
+    align-self: flex-end;
+  }
+  a{
+    color: white;
+  }
+  
+  body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      background-image: url("Long-Room-Trinity-College-Dublin.jpeg");
+      background-size: cover;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .messageBox {
+      border: 10px solid rgb(96, 34, 34);
+      height: 40vh;
+      width: 70vw;
+      background-color: beige;
+      overflow: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 250%;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 0;
+    
+    }
+    h3{
+      text-align: center;
+      margin-top: 2px;
+    }
+    p {
+      font-weight: 500;
+    }
+    /* bottom of messageBox */
+    .actionSection {
+      display: flex;
+      justify-content: space-around;
+    }
+    /* bottom left of messageBox */
+    .sortSection {
+      display: flex;
+      flex-direction: column;
+    }
+    /* bottom right of messageBox */
+    .favesSection {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    #likedCount{
+      text-align: right;
+    }
+    /* main bookshelf container */
+    .bookShelf {
+      border: 5px solid black;
+      height: 1100px;
+      width: 1100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgb(77, 37, 37);
+    }
+    /* container that holds shelves, no matter how many */
+    .shelves {
+      height: 90%;
+      width: 90%;
+      margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+      gap: 5%;
+      background: rgb(77, 37, 37);
+      border: 5px solid black;
+    }
+    /* styles the individualy shelves to  go in the shelves container*/
+    .shelfArray {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      gap: .5%;
+      background: rgb(53, 19, 19);
+    }
+    /* styles each individual book */
+    .book {
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      /* Changes for COMMENTS */
+      justify-content: space-between;
+      height: 100%;
+      width: 100%;
+    }
+    /* book styling for when eventlistener is clicked the book is enlarged  */
+    .bookBig {
+      border: 2px solid black;
+      height: 500px;
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* styles black info box inside each book */
+    .bookInfo {
+      height: 30%;
+      width: 50%;
+      background: black;
+      color: white;
+      padding: 5px;
+      border: 1px dashed rgb(201, 223, 74);
+      margin-top: 5%;
+      font-size: 1px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* bookInfo styling for when eventlistener is clicked the book is enlarged  */
+    .bigBookInfo {
+      height: 50%;
+      font-size: 20px;
+      overflow: auto;
+      width: 100%;
+      background: black;
+      color: white;
+      padding: 5px;
+      border: 1px dashed rgb(201, 223, 74);
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* favorite button styling */
+    .faveSwitch {
+      width: 10%;
+      height: 10%;
+      background: white;
+    }
+    /* style when button is clicked */
+    .toggledFaveSwitch {
+      background: red;
+      width: 10%;
+      height: 10%;
+    }
+    /* direction section of bottom left side of messageBox */
+    .directionSection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* toggle button containerfor direction of sort switch on bottom left of messageBox*/
+    .sortSwitchBox {
+      position: relative;
+      width: 40px;
+      height: 17px;
+    }
+    
+    /* slider box of the toggle button in  sortSwitchBoc*/
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #29577d;
+      
+    }
+    /* slider of the toggle button */
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 2px;
+      top: 2px;
+      background-color: red;
+   
+    }
+    /* moves the slider when clicked */
+    .sortSwitch:checked + .slider:before {
+      transform: translateX(20px);
+    }

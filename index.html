@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="main3.css" />
+  </head>
+  <body>
+    <nav id="navigation">
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
+      <a href="index.html">Bookshelf</a>
+    </nav>
+
+
+<!-- Message Box: top part of page that allows user to maniplate bookshelf -->
+    <section id="message-Box">
+  <!-- Sorter Section: allows users to re-sort the bookhelf in various ways -->
+     <!--sorter: dropdown list  -->
+      <select id="sorter">
+        <option value="">Sort by</option>
+        <option value="author">Author</option>
+        <option value="title">Title</option>
+        <option value="subjects"># of Subjects</option>
+      </select>
+      <label class="sortSwitchBox">
+        <input id="checkBox" type="checkbox" />
+        <div class="slider"></div>
+      </label>
+      <button id="sortButton">Sort</button>
+  <!--Favorites Sections: has a button that updates user's favorite books
+  and displays only those books on the shelf  -->
+      <div id="likedLabel">
+         Favorite Books:
+        <span id="likedCount">0</span>
+      </div>
+      <button id="favesButton">Update & View Favorite Books</button>
+
+<!-- ADD BOOK -->
+
+      <div id="addBook">Add Book:
+        <label id="authorLabel">Author:<input id="authorInput" placeholder="last, first; last, first.."></label>
+        <label id="titleLabel" >Title:<input id="titleInput" ></label>
+        <label id="languageLabel">Language:<input id="languageInput" ></label>
+        <label id="subjectsLabel" >Subjects:<input id="subjectsInput" placeholder="subject 1, subject 2, etc..."></label>
+        <button id="addButton" >Add</button>
+      </div>
+
+<!-- <button id="commentButton">Add da Comment</button>
+<textarea id="commentInput" ></textarea> -->
+
+
+
+
+
+
+<!-- ADD BOOK ^^^^ -->
+    </section>
+<!-- Bookshelf: a single bookShelf html element that acts as the root for 
+all the bookshelf DOM information -->
+    <section class="bookShelf"></section>
+<!-- the scripts of the different files are added in order for each consecutive
+one to have everything is needs from the previous files -->
+    <script src="js/book-data.js"></script>
+    <script src="booksTest.js"></script>
+    <script src="bookshelf.js"></script>
+    <script src="index.js"></script>
+    <script src="messageBox.js"></script>
+  </body>
+</html>
