@@ -66,14 +66,6 @@ class Bookshelf {
         const renderedBook = this.bookArray[j].render();
         newBook.replaceChildren(renderedBook);
         shelfArray[i].append(newBook);
-
-        // BIGGEHELVES
-        // newBook.addEventListener("click", ()=>{
-        //   bookShelf.style.width = "2000px"
-        //   bookShelf.style.height = "2000px"
-        //   console.log("hey asshole")
-        // })
-        // BIGGER SHELVES^^^
       }
       // Each shelf is add to the shelves element of the bookShelf
       shelves.append(shelfArray[i]);
