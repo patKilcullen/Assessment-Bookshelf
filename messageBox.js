@@ -7,7 +7,8 @@ const messageTitle = document.createElement("h1");
 messageTitle.textContent = "Welcome to your library...";
 
 const messageContent = document.createElement("h2");
-messageContent.textContent = "Click on a book to reader more, read/add comments, and add a book to your favorites.";
+messageContent.textContent =
+  "Click on a book to reader more, read/add comments, and add a book to your favorites.";
 const messageContent2 = document.createElement("h3");
 messageContent2.textContent =
   "Click the white button a book to add it to your favorites!";
@@ -34,8 +35,7 @@ const leftDireciton = document.createElement("p");
 leftDireciton.textContent = "A-Z, Low-High";
 // sortDirection: the toggle sort switch
 const sortDirection = document.querySelector(".sortSwitchBox");
-const sortSwitch = document.querySelector("input[type='checkbox']");
-// const sortSwitch = document.querySelector("checkBox");
+const sortSwitch = document.querySelector("#checkBox");
 sortSwitch.className = "sortSwitch";
 
 const rightDireciton = document.createElement("p");
@@ -75,7 +75,7 @@ sortButton.addEventListener("click", () => {
   bookshelf1.render();
 });
 
-// faveSection: hold informatio nthat keeps track of and displays
+// faveSection: hold information that keeps track of and displays
 // the books the user selects as favorites
 const favesSection = document.createElement("section");
 favesSection.className = "favesSection";
@@ -101,30 +101,27 @@ favesButton.addEventListener("click", function () {
   }, 0);
 });
 
-// ADD Book
+// Add Book Section
 const addBook = document.querySelector("#addBook");
 addBook.style.display = "flex";
 addBook.style.flexDirection = "column";
 
+// Html emelemnts from index.html are selected
 const authorInput = document.querySelector("#authorInput");
 const titleInput = document.querySelector("#titleInput");
 const languageInput = document.querySelector("#languageInput");
 const subjectsInput = document.querySelector("#subjectsInput");
 const addButton = document.querySelector("#addButton");
 
-// addBook.append(authorInput,tit, titleInput,languageInput, subjectsInput, addButton)
-
 addButton.addEventListener("click", function () {
-  // add .split(";") to spuject to allow multiple authors to be added
+  // add .split(";") to subject allow multiple authors to be added
   let authorValue = authorInput.value.split(";");
   let titleValue = titleInput.value;
   let languageValue = languageInput.value;
-  // add .split(",") to spuject to allow multiple subjects to be added
+  // add .split(",") to subject to allow multiple subjects to be added
   let subjectsValue = subjectsInput.value.split(",");
-  // if(subjectsInput.value = null){
-  //   subjectsValue = 0
-  // }
-
+  // a new book is created as an instance of the book class and then used as an argument
+  // of bookshelf1's addBook method
   const newBook = new Book(
     authorValue,
     titleValue,
@@ -133,6 +130,7 @@ addButton.addEventListener("click", function () {
   );
   bookshelf1.addBook(newBook);
 
+  // renders the bookshelf with the added book and sets input fields to blank
   bookshelf1.render();
   authorInput.value = " ";
   titleInput.value = " ";
@@ -140,12 +138,14 @@ addButton.addEventListener("click", function () {
   subjectsInput.value = " ";
 });
 
+// Search section.  Created in js instead of via html elements like other aspects of message box.  For practice.
 const searchSection = document.createElement("section");
 searchSection.className = "searchSection";
 searchSection.style.display = "flex";
 searchSection.style.flexDirection = "column";
 searchSection.textContent = "Search Your Bookshelf";
 
+// drop down menu
 const searchType = document.createElement("select");
 const searchAll = document.createElement("option");
 searchAll.value = "all";
@@ -163,13 +163,18 @@ searchSubject.textContent = "Search Subject";
 searchType.append(searchAll, searchAuthor, searchTitle, searchSubject);
 
 const searchInput = document.createElement("input");
-searchInput.className = "searchInput";
+// searchInput.className = "searchInput";
+searchInput.placeholder = "enter your search here...";
 let searchValue = searchInput.value;
 
 const searchButton = document.createElement("button");
-searchButton.className = "searchButton";
+// searchButton.className = "searchButton";
+searchButton.textContent = "Search";
 searchButton.style.height = "20px";
 
+// When search button is clicked, the value of the searchType dropdown menu is used to determine which filter
+// function/functions are used to filter the searchArray of the bookshelf class to only those that match
+// the value of the search input at the time that the button is clicked
 searchButton.addEventListener("click", () => {
   let searchValue = searchInput.value;
   let typeValue = searchType.value;
@@ -192,6 +197,7 @@ searchButton.addEventListener("click", () => {
       )
     );
   }
+  // all combines all three of the above search functions
   if (typeValue === "all") {
     bookshelf1.searchArray = bookshelf1.bookArray.filter(
       (book) =>
@@ -207,50 +213,8 @@ searchButton.addEventListener("click", () => {
   bookshelf1.renderSearch();
 });
 
-// SEARCH SUBJECT
-// searchButton.addEventListener('click',()=>{
-//   let searchValue = searchInput.value
-//   // console.log("SEARCH VALUEE", searchValue)
-// bookshelf1.searchArray = bookshelf1.bookArray.filter((book) =>
-// book.subject.find((string) =>
-//   string.toLowerCase().includes(searchValue.toLowerCase())
-// )
-// )
-// bookshelf1.renderSearch()
-// })
-
-// SEARCH AUTHOR
-// searchButton.addEventListener('click',()=>{
-//   let searchValue = searchInput.value
-//   console.log("YYYYOOOOOO", typeof bookshelf1.title)
-//   // console.log("SEARCH VALUEE", searchValue)
-// bookshelf1.searchArray = bookshelf1.bookArray.filter((book) =>
-// book.author.find((string) =>
-//   string.toLowerCase().includes(searchValue.toLowerCase())
-
-// )
-// )
-// bookshelf1.renderSearch()
-
-// })
-
-// SEARCH TITLE
-// searchButton.addEventListener('click',()=>{
-//   let searchValue = searchInput.value
-//   console.log("YYYYOOOOOO", typeof bookshelf1.title)
-//   // console.log("SEARCH VALUEE", searchValue)
-// bookshelf1.searchArray = bookshelf1.bookArray.filter((book) =>
-// book.title.toLowerCase().includes(searchValue.toLowerCase())
-
-// )
-
-// bookshelf1.renderSearch()
-
-// })
-
-searchSection.append(searchType, searchInput, searchButton);
-
 // each child sectiogn is appended to its parent element
+searchSection.append(searchType, searchInput, searchButton);
 directionSection.append(leftDireciton, sortDirection, rightDireciton);
 sortSection.append(sorter, directionSection, sortButton);
 likedLabel.append(likedCount);
@@ -263,5 +227,12 @@ messageBox.append(
   actionsSection
 );
 
+// BIGGER SHELVES ATTEMPT
+// const book = document.querySelector(".book")
+// book.style.background = "blue"
+// const bookShelf = document.querySelector(".bookShelf")
 
-const book = document.querySelector(".book")
+// book.addEventListener("click", ()=>{
+// console.log("hey asshole")
+//   bookShelf.style.width = "2000px"
+// })
