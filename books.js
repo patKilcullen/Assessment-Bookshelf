@@ -31,8 +31,7 @@ class Book {
 
     const bookTitle = document.createElement("h1");
     bookTitle.className = "bookTitle";
-    // shortTitle uses slice to keep the titles short so that they don;t take up too much room on the bookshelf when small
-    // can possible use splice to keep it to full words...
+    // shortTitle uses slice to keep the titles short so that they don't take up too much room on the bookshelf when small
     let shortTitle = `${this.title.slice(0, 40)}...`;
     bookTitle.textContent = shortTitle;
     // bookAuthor and bookSubjects: have a display of none because they aren't

@@ -227,12 +227,3 @@ messageBox.append(
   actionsSection
 );
 
-// BIGGER SHELVES ATTEMPT
-// const book = document.querySelector(".book")
-// book.style.background = "blue"
-// const bookShelf = document.querySelector(".bookShelf")
-
-// book.addEventListener("click", ()=>{
-// console.log("hey asshole")
-//   bookShelf.style.width = "2000px"
-// })

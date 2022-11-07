@@ -30,7 +30,7 @@ class Bookshelf {
     });
   }
 
-  // render: creates the main element of the bookshelf page and links them toe classnames to
+  // render: creates the main element of the bookshelf page and links them to classnames to
   // be styled with CSS
   render() {
     const main = document.querySelector(".bookShelf");
@@ -43,7 +43,7 @@ class Bookshelf {
     shelves.className = "shelves";
 
     // For loop uses numOfBooks constructor to let a user add as many shelves
-    // as they want to they bookshelf
+    // as they want to the bookshelf
     for (let i = 0; i < this.numberOfShelves; i++) {
       const shelfArray = [];
       shelfArray[i] = document.createElement("div");
@@ -51,7 +51,6 @@ class Bookshelf {
 
       // booksPerShelf: divides number of elements in bookArray by number of shelves so that each
       //  shelf has as close to the same number of books as possible. Currently only works for even number of shelves
-      //NEEDOMETHING BAOUT EVEN?ODDD
       const booksPerShelf = Math.floor(
         this.bookArray.length / this.numberOfShelves
       );

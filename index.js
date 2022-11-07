@@ -11,7 +11,7 @@ const AmericanPsycho = new Book(
   ["Ellis, Bret Easton"],
   "American Psycho",
   "e~",
-  ["sick", "psychological"]
+  ["psychological"]
 );
 bookshelf1.addBook(AmericanPsycho);
 
